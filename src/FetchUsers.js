@@ -1,26 +1,31 @@
 import React from 'react'
 
 class FetchUsers extends React.Component {
-    state = {
-        UserData: null
-    }
+  state = {
+    randomUsers: null
+  }
 
-    componentDidMount() {
-        console.log('componentDidMount')
-        fetch(`https://randomuser.me/api`)
-            .then(response => response.json())
-            .then(data => this.setState({
-                UserData: data.results
-            }))
-    }
+  componentDidMount() {
+    fetch(
+      'https://randomuser.me/api/?results=10'
+    )
+      .then(response => response.json())
+      .then(data => this.setState({
+        randomUsers: data.results
+      }))
+  }
 
-
-    render() {
-        return (
-            <div>
-                {users}
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        {
+          this.state.randomUsers &&
+          this.state.randomUsers.map(user => (
+            <div>{user.email}</div>
+          ))
+        }
+      </div>
+    )
+  }
 }
-export default FetchUsers 
+export default FetchUsers
