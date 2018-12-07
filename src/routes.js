@@ -3,6 +3,7 @@ import React from 'react'
 import Counter from './Counter'
 import PassingProps from './PassingProps'
 import FetchUsers from './FetchUsers'
+import Add from './Add'
 
 export const routes = [
   {
@@ -41,5 +42,11 @@ export const routes = [
     path: '/fetch-users',
     label: 'Fetch Users',
     key: '67890'
+  },
+  {
+    component: Add,
+    path: '/add',
+    label: 'Add',
+    key: '7890'
   },
 ]
